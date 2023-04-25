@@ -8,7 +8,6 @@ plugins {
     // Hilt
     id(Plugins.hilt)
     id(Plugins.mapsPlatform)
-    id(Plugins.googleServices)
 }
 
 android {

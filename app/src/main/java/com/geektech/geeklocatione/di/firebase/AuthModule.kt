@@ -1,7 +1,6 @@
-package com.geektech.geeklocation.di.firebase
+package com.geektech.geeklocatione.di.firebase
 
 import android.app.Application
-import com.geektech.geeklocation.R
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.ktx.auth
@@ -24,7 +23,7 @@ object AuthModule {
     @Singleton
     fun provideGoogleSignInOptions(app: Application) =
         GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(app.getString(R.string.default_web_client_id))
+            .requestIdToken(app.getString(com.geektech.presentation.R.string.default_web_client_id))
             .requestEmail()
             .build()
 

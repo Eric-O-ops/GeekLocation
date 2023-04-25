@@ -1,9 +1,9 @@
-package com.geektech.geeklocation.di
+package com.geektech.geeklocatione.di
 
-import com.geektech.data.repositories.SafeUserDataRepositoryImpl
-import com.geektech.data.repositories.SignInWithGoogleRepositoryImpl
-import com.geektech.domain.repositories.SaveUserDataRepository
-import com.geektech.domain.repositories.SignInWithGoogleRepository
+import com.geektech.data.repositories.SafeUserDataRepImpl
+import com.geektech.data.repositories.SignInRepImpl
+import com.geektech.domain.repositories.SaveUserDataRep
+import com.geektech.domain.repositories.SignInRep
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -13,11 +13,10 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 interface RepositoryModule {
 
-    @Binds
-    fun bindSignInWithGoogleRepository(repository: SignInWithGoogleRepositoryImpl)
-            : SignInWithGoogleRepository
+ @Binds
+    fun bindSignInRep(repository: SignInRepImpl): SignInRep
 
     @Binds
-    fun bindSaveUserDataRepository(repository: SafeUserDataRepositoryImpl)
-            : SaveUserDataRepository
+    fun bindSaveUserDataRepository(repository: SafeUserDataRepImpl): SaveUserDataRep
+
 }

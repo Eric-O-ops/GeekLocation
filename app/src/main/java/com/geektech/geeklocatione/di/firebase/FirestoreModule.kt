@@ -1,4 +1,4 @@
-package com.geektech.geeklocation.di.firebase
+package com.geektech.geeklocatione.di.firebase
 
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase

@@ -7,4 +7,5 @@
     <string name="google_title">Google</string>
     <string name="logo">logo</string>
     <string name="hint_name">Имя</string>
+    <string name="other_person">other person</string>
 </resources>

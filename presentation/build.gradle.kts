@@ -95,4 +95,11 @@ dependencies {
     implementation(Dependencies.Maps.playServicesMaps)
     implementation(Dependencies.Maps.serviceLocation)
 
+    // JUnit
+    testImplementation(Dependencies.Test.jUnit)
+    androidTestImplementation(Dependencies.Test.extJUnit)
+
+    // EspressoCore
+    androidTestImplementation(Dependencies.Test.espressoCore)
+
 }

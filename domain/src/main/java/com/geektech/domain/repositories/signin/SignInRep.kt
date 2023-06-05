@@ -1,4 +1,4 @@
-package com.geektech.domain.repositories
+package com.geektech.domain.repositories.signin
 
 interface SignInRep {
 

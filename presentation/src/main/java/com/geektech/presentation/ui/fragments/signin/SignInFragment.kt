@@ -5,7 +5,6 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.geektech.domain.base.constansts.Constants
 import com.geektech.presentation.R
@@ -58,7 +57,11 @@ class SignInFragment :
                     viewModel.signInWithGoogle(token,
                         onSuccess = {
                             viewModel.saveUserData(binding.etInputName.text.toString())
-                            findNavController().navigate(R.id.action_signInFragment_to_mainFragment)
+                            //findNavController().navigate(R.id.action_signInFragment_to_mainFragment)
+                            requireActivity().apply {
+                                finish()
+                                startActivity(this.intent)
+                            }
                         },
                         onError = {
                             Toast.makeText(

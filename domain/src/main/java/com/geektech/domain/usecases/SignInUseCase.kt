@@ -1,6 +1,6 @@
 package com.geektech.domain.usecases
 
-import com.geektech.domain.repositories.SignInRep
+import com.geektech.domain.repositories.signin.SignInRep
 import javax.inject.Inject
 
 class SignInUseCase @Inject constructor(

@@ -1,6 +1,6 @@
 package com.geektech.data.repositories.location
 
-import com.geektech.data.repositories.preferences.userdata.UserPreferencesData
+import com.geektech.data.preferences.userdata.UserPreferencesData
 import com.geektech.domain.base.constansts.Constants
 import com.geektech.domain.modles.LocModel
 import com.geektech.domain.repositories.location.LocThisUserRep
@@ -15,9 +15,9 @@ class LocThisUserRepImpl @Inject constructor(
 
     override fun updateLoc(location: LocModel) {
 
-        db.collection(Constants.Firebase.nameOfCollation).document(pref.userName)
+        db.collection(Constants.FirebaseUsers.NAME_COLLECTION).document(pref.userName)
             .update(
-                Constants.Firebase.nameOfLocationField,
+                Constants.FirebaseUsers.LOC_FIELD,
                 GeoPoint(location.latitude, location.longitude)
             )
     }

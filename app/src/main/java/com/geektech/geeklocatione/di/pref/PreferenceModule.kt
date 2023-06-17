@@ -1,8 +1,8 @@
 package com.geektech.geeklocatione.di.pref
 
 import android.content.Context
-import com.geektech.data.repositories.preferences.PreferencesHelper
-import com.geektech.data.repositories.preferences.userdata.UserPreferencesData
+import com.geektech.data.preferences.PreferencesHelper
+import com.geektech.data.preferences.userdata.UserPreferencesData
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,7 +1,7 @@
-package com.geektech.data.repositories.preferences.userdata
+package com.geektech.data.preferences.userdata
 
-import com.geektech.data.repositories.preferences.PreferencesConstants
-import com.geektech.data.repositories.preferences.PreferencesHelper
+import com.geektech.data.preferences.PreferencesConstants
+import com.geektech.data.preferences.PreferencesHelper
 
 class UserPreferencesData(
     private val preferences: PreferencesHelper

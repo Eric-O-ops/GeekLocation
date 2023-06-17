@@ -1,4 +1,4 @@
-package com.geektech.data.repositories.preferences
+package com.geektech.data.preferences
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -6,7 +6,7 @@ import android.content.SharedPreferences
 class PreferencesHelper(context: Context) {
 
     private val preference: SharedPreferences =
-        context.getSharedPreferences("userData", Context.MODE_PRIVATE)
+        context.getSharedPreferences(PreferencesConstants.NAME_SHARE_PREF, Context.MODE_PRIVATE)
 
     operator fun invoke() = preference
 }

@@ -70,4 +70,14 @@
         app:iconTint="@null"
         app:layout_constraintTop_toBottomOf="@id/et_input_name" />
 
+    <TextView
+        android:id="@+id/tv_check_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="@string/check_signup"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/btn_google" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

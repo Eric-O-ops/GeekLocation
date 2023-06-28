@@ -9,15 +9,25 @@ class UserPreferencesData(
 
     var userId: Int
         get() = preferences().getInt(
-            PreferencesConstants.USER_ID, 0)
+            PreferencesConstants.USER_ID, 0
+        )
         set(value) = preferences()
             .edit().putInt(
                 PreferencesConstants.USER_ID, value
             ).apply()
 
+    var userAccountId: String
+        get() = preferences().getString(
+            PreferencesConstants.USER_ACCOUNT_ID, "null"
+        ).toString()
+        set(value) = preferences()
+            .edit().putString(
+                PreferencesConstants.USER_ACCOUNT_ID, value
+            ).apply()
+
     var userName: String
         get() = preferences().getString(
-            PreferencesConstants.USER_NAME, "null"
+            PreferencesConstants.USER_NAME, ""
         ).toString()
         set(value) = preferences()
             .edit().putString(

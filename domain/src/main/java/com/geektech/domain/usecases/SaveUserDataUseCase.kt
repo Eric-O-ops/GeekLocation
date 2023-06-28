@@ -6,5 +6,5 @@ import javax.inject.Inject
 class SaveUserDataUseCase @Inject constructor(
     private val repository: SaveUserDataRep
 ) {
-    operator fun invoke(name: String) = repository.saveUserData(name)
+    operator fun invoke(name: String) = repository.saveUserData(name,)
 }

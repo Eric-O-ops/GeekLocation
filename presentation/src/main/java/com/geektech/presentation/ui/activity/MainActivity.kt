@@ -1,10 +1,13 @@
 package com.geektech.presentation.ui.activity
 
 import android.Manifest
+import android.app.AlertDialog
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import android.provider.Settings
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -13,6 +16,8 @@ import com.geektech.presentation.R
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+
+const val SCHEME_SETTINGS = "package"
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), StartDestination {
@@ -35,9 +40,6 @@ class MainActivity : AppCompatActivity(), StartDestination {
         val currentUser = auth.currentUser
 
         if (currentUser != null) {
-           /* StartDestination
-                .Base(navHostFragment,R.navigation.nav_graph, R.id.mainFragment)
-                .setDestId()*/
             registerPermissionListener(navHostFragment)
             checkLocationPermission(navHostFragment)
         } else {
@@ -57,10 +59,8 @@ class MainActivity : AppCompatActivity(), StartDestination {
                 StartDestination
                     .Base(navHostFragment,R.navigation.nav_graph, R.id.mainFragment)
                     .setDestId()
-            } else {
-                // permission denied
-                Toast.makeText(this, "permission denied", Toast.LENGTH_SHORT).show()
-            }
+
+            } else { showAlertDialog() }
         }
     }
 
@@ -77,8 +77,7 @@ class MainActivity : AppCompatActivity(), StartDestination {
             }
 
             shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION) -> {
-                //go to settings "we need your permission"
-                Toast.makeText(this, "Go to Settings", Toast.LENGTH_SHORT).show()
+                openSettings()
             }
 
             else -> {
@@ -88,5 +87,22 @@ class MainActivity : AppCompatActivity(), StartDestination {
                 ))
             }
         }
+    }
+
+    private fun showAlertDialog() {
+        AlertDialog.Builder(this)
+            .setCancelable(false)
+            .setTitle(R.string.alert_dialog_title_need_permission)
+            .setMessage(R.string.alert_dialog_massage_need_permission)
+            .setPositiveButton(R.string.alert_dialog_positive_button) { _, _ -> openSettings() }
+            .setNegativeButton(R.string.alert_dialog_negative_button) { _, _ -> finish() }
+            .create().show()
+    }
+
+    private fun openSettings() {
+        startActivity(
+            Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+            Uri.fromParts(SCHEME_SETTINGS, applicationContext?.packageName, null))
+        )
     }
 }

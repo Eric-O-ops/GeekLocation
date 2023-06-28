@@ -1,11 +1,27 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- Default -->
     <string name="app_name">GeekLocationE</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- SignIn Fragment-->
     <string name="welcome_title">Добро пожаловать в GeekLocation </string>
     <string name="google_title">Google</string>
     <string name="logo">logo</string>
     <string name="hint_name">Имя</string>
+    <string name="check_signup">Уже есть аккаунт?\t Войдите</string>
+
+    <!-- Alert Dialog-->
+    <string name="alert_dialog_title_need_permission">Нужно разршение</string>
+    <string name="alert_dialog_massage_need_permission">
+        Для дальнейшего использования приложения нужно разрешение на локаци.
+        Пожалуйста, зайдите в разрешения и разрешите отслеживание устройства
+    </string>
+    <string name="alert_dialog_positive_button">настройки</string>
+    <string name="alert_dialog_negative_button">закрыть приложение</string>
+
+    <!-- Other people marker -->
     <string name="other_person">other person</string>
+
+    <!-- Toast text -->
+    <string name="no_account">There no such account</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.geektech.data.repositories.location
 
+import android.util.Log
 import com.geektech.data.preferences.userdata.UserPreferencesData
 import com.geektech.domain.base.constansts.Constants
 import com.geektech.domain.modles.LocModel
@@ -15,7 +16,9 @@ class LocThisUserRepImpl @Inject constructor(
 
     override fun updateLoc(location: LocModel) {
 
-        db.collection(Constants.FirebaseUsers.NAME_COLLECTION).document(pref.userName)
+        Log.e("GOGO", pref.userAccountId )
+
+        db.collection(Constants.FirebaseUsers.NAME_COLLECTION).document(pref.userAccountId)
             .update(
                 Constants.FirebaseUsers.LOC_FIELD,
                 GeoPoint(location.latitude, location.longitude)

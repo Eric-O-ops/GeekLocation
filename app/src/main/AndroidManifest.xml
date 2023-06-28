@@ -20,7 +20,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD4oqN0TqNR2USc0XYzOSnbNMlwf-Xcq6M" />
+            android:value="AIzaSyBxZ6rmnpXeNFVgExRp34EOi4wg6wtmDeY" />
 
         <!-- Necessary for apps that target Android 9.0 or higher -->
         <uses-library android:name="org.apache.http.legacy" android:required="false" />

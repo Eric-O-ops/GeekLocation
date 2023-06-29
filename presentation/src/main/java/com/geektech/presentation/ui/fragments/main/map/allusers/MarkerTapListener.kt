@@ -1,4 +1,4 @@
-package com.geektech.presentation.ui.fragments.main.map
+package com.geektech.presentation.ui.fragments.main.map.allusers
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap

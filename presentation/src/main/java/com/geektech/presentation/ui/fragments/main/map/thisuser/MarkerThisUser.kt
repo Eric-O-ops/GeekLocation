@@ -1,8 +1,9 @@
-package com.geektech.presentation.ui.fragments.main.map
+package com.geektech.presentation.ui.fragments.main.map.thisuser
 
 import android.content.Context
 import android.location.Location
 import com.geektech.presentation.R
+import com.geektech.presentation.ui.fragments.main.map.ConvertToBitmap
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng

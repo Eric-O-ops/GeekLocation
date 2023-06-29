@@ -7,11 +7,11 @@ object Config {
     const val testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     const val jvmTarget = "1.8"
 
-    object App { const val namespace = "com.geektech.geeklocation" }
+    object App { const val namespace = "com.geeks.geeklocation" }
 
-    object Data { const val namespace = "com.geektech.data" }
+    object Data { const val namespace = "com.geeks.data" }
 
-    object Domain { const val namespace = "com.geektech.domain" }
+    object Domain { const val namespace = "com.geeks.domain" }
 
-    object Presentation { const val namespace = "com.geektech.presentation" }
+    object Presentation { const val namespace = "com.geeks.presentation" }
 }

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "63148539535",
+    "firebase_url": "https://geeklocation-1674735660392-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "geeklocation-1674735660392",
+    "storage_bucket": "geeklocation-1674735660392.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63148539535:android:fd70d50d6bea0577e33afa",
+        "android_client_info": {
+          "package_name": "com.geeks.geeklocation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "63148539535-sok9ovibugaqd6pep0ggn6kns0bpa4v4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.geeks.geeklocation",
+            "certificate_hash": "dd1e88577156bedfec4ef72801e83c5ef814e03b"
+          }
+        },
+        {
+          "client_id": "63148539535-p7c8ma56tegamohq9omq31fae05stbi7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL3Z6GFx9n1mYrmYK4_LcxcUofzGo3mbk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "63148539535-46agftjasrisu66o7t4jhhvgfucr8aue.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

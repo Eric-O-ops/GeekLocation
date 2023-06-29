@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
-        android:name="com.geektech.geeklocatione.App"
+        android:name="com.geeks.geeklocation.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -26,7 +26,7 @@
         <uses-library android:name="org.apache.http.legacy" android:required="false" />
 
         <activity
-            android:name="com.geektech.presentation.ui.activity.MainActivity"
+            android:name="com.geeks.presentation.ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

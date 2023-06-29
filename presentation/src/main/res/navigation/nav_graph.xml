@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.geektech.presentation.ui.fragments.signin.SignInFragment"
+        android:name="com.geeks.presentation.ui.fragments.signin.SignInFragment"
         android:label="fragment_sign_in"
         tools:layout="@layout/fragment_sign_in" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.geektech.presentation.ui.fragments.main.MainFragment"
+        android:name="com.geeks.presentation.ui.fragments.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
 </navigation>

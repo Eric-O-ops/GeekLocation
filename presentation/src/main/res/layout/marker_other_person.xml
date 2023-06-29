@@ -14,21 +14,21 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/marker_other_user"
             android:adjustViewBounds="true"
+            android:layout_gravity="center"
+            android:contentDescription="@string/other_person"
             android:scaleType="centerCrop"
-            android:contentDescription="@string/other_person" />
+            android:src="@drawable/marker_other_user" />
 
         <TextView
             android:id="@+id/user_name"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:gravity="center"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:textColor="@color/black"
             android:layout_gravity="bottom"
-            android:includeFontPadding="false"
             android:textSize="20sp"
-            tools:text="eric"/>
+            tools:text="Аманjhsfkgjhds"/>
 
     </LinearLayout>
 </FrameLayout>

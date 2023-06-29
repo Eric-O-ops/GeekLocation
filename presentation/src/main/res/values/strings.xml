@@ -10,7 +10,7 @@
     <string name="hint_name">Имя</string>
     <string name="check_signup">Уже есть аккаунт?\t Войдите</string>
 
-    <!-- Alert Dialog-->
+    <!-- Alert Dialog Main Activity-->
     <string name="alert_dialog_title_need_permission">Нужно разршение</string>
     <string name="alert_dialog_massage_need_permission">
         Для дальнейшего использования приложения нужно разрешение на локаци.
@@ -18,6 +18,21 @@
     </string>
     <string name="alert_dialog_positive_button">настройки</string>
     <string name="alert_dialog_negative_button">закрыть приложение</string>
+
+    <!-- Alert Dialog Main Fragment-->
+    <string name="title_no_network_and_GPS">Нет подключения к интернету и не включен GPS</string>
+    <string name="massage_no_network_and_GPS">
+        Пожалуйста, включите интернет и GPS, чтобы приложение работало корректно</string>
+
+    <string name="title_no_network">Нет подключения к интернету</string>
+    <string name="massage_no_network">Пожалуйста, проверьте подключене к интернету,
+        потому что без него приложение не будет работать</string>
+
+    <string name="title_no_GPS_enabled">GPS отключен</string>
+    <string name="massage_no_GPS_enabled">Пожалуйста, включите GPS,
+        чтобы приложение работало корректно</string>
+
+    <string name="ok">ок</string>
 
     <!-- Other people marker -->
     <string name="other_person">other person</string>

@@ -1,6 +1,7 @@
 package com.geektech.data.repositories.signin
 
 import android.util.Log
+import com.geektech.data.preferences.userdata.UserPreferencesData
 import com.geektech.domain.base.constansts.Constants
 import com.geektech.domain.repositories.signin.CheckSignInRep
 import com.google.firebase.auth.FirebaseAuth
@@ -10,7 +11,8 @@ import javax.inject.Inject
 
 class CheckSignInRepImpl @Inject constructor(
     private val auth: FirebaseAuth,
-    private val firestore: FirebaseFirestore
+    private val firestore: FirebaseFirestore,
+    private val pref: UserPreferencesData
 ) : CheckSignInRep {
 
     override fun checkSignIn(token: String, onSuccess: () -> Unit, onError: () -> Unit) {
@@ -28,12 +30,12 @@ class CheckSignInRepImpl @Inject constructor(
 
                             for (doc in value!!) {
                                 if (doc.getString("email") == email) {
+                                    pref.userAccountId = auth.currentUser?.uid ?: "no id" //todo
                                     onSuccess()
                                     return@addSnapshotListener
                                 }
                             }
                             onError()
-                            auth.signOut()
                         }
                     }
                 }

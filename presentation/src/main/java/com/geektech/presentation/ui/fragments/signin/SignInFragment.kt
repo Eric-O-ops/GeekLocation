@@ -63,6 +63,36 @@ class SignInFragment :
         }
     }
 
+    // todo if user has been registered
+    private val resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+                val token = task.result.idToken
+                if (token != null) {
+                    viewModel.signInWithGoogle(token,
+                        onSuccess = {
+                            viewModel.saveUserData(binding.etInputName.text.toString())
+                            requireActivity().apply {
+                                finish()
+                                startActivity(this.intent)
+                            }
+                        },
+                        onError = {
+                            Toast.makeText(
+                                requireContext(),
+                                Constants.TEXT_ERROR,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        })
+                } else {
+                    Log.e("TokenException", "No Token!")
+                }
+            }
+        }
+
+    private fun checkSingUp() = checkSignUp.launch(gsc.signInIntent)
+
     private val checkSignUp =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
@@ -84,34 +114,6 @@ class SignInFragment :
                             ).show()
                             auth.signOut()
                         })
-                }
-            }
-        }
-
-    private fun checkSingUp() = checkSignUp.launch(gsc.signInIntent)
-
-    private val resultLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-                val token = task.result.idToken
-                if (token != null) {
-                    viewModel.signInWithGoogle(token,
-                        onSuccess = {
-                            viewModel.saveUserData(binding.etInputName.text.toString())
-                            requireActivity().apply {
-                                finish()
-                                startActivity(this.intent)
-                            }
-                        },
-                        onError = {
-                            Toast.makeText(
-                                requireContext(),
-                                Constants.TEXT_ERROR, Toast.LENGTH_SHORT
-                            ).show()
-                        })
-                } else {
-                    Log.e("TokenException", "No Token!")
                 }
             }
         }

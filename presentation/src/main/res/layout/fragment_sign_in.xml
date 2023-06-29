@@ -40,6 +40,7 @@
         android:background="@drawable/normal_edit_text"
         android:hint="@string/hint_name"
         android:inputType="textPersonName"
+        android:maxLength="16"
         android:paddingStart="25dp"
         android:paddingEnd="20dp"
         android:textColor="@color/white"

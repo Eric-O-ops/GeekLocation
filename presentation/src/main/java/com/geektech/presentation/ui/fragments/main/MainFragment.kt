@@ -1,24 +1,22 @@
 package com.geektech.presentation.ui.fragments.main
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.geektech.domain.modles.LocModel
 import com.geektech.presentation.R
-import com.geektech.presentation.ui.fragments.main.map.MapLocUpdates
-import com.geektech.presentation.ui.fragments.main.map.MarkerAllUser
-import com.geektech.presentation.ui.fragments.main.map.MarkerThisUser
-import com.geektech.presentation.ui.fragments.main.map.MarkerTapListener
+import com.geektech.presentation.ui.fragments.main.map.*
+import com.geektech.presentation.ui.fragments.main.map.allusers.MarkerAllUser
+import com.geektech.presentation.ui.fragments.main.map.allusers.MarkerTapListener
+import com.geektech.presentation.ui.fragments.main.map.thisuser.MarkerThisUser
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -46,6 +44,7 @@ class MainFragment : Fragment(R.layout.fragment_main), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
 
         //1
+        checkInternetAndGPS()
         uiScope.launch(Dispatchers.IO) {
             locThisUser()
             initialization()
@@ -62,16 +61,42 @@ class MainFragment : Fragment(R.layout.fragment_main), OnMapReadyCallback {
             .setMaxUpdateDelayMillis(500)
             .build()
 
-        //locThisUser()
-
         markerAllUser = MarkerAllUser(requireContext(), requireActivity().applicationContext)
         locUpdates = MapLocUpdates(fusedLocClient, locRequest, locCallback)
+    }
+
+    private fun checkInternetAndGPS() {
+        when {
+            !viewModel.isGpsEnabled() && !viewModel.isNetworkEnable() -> {
+                AlertDialog.Builder(requireContext())
+                    .setCancelable(false)
+                    .setTitle(R.string.title_no_network_and_GPS)
+                    .setMessage(R.string.massage_no_network_and_GPS)
+                    .setPositiveButton(R.string.ok) { _, _ ->  }
+                    .create().show()
+            }
+            !viewModel.isGpsEnabled() -> {
+                AlertDialog.Builder(requireContext())
+                    .setCancelable(false)
+                    .setTitle(R.string.title_no_GPS_enabled)
+                    .setMessage(R.string.massage_no_GPS_enabled)
+                    .setPositiveButton(R.string.ok) { _, _ ->  }
+                    .create().show()
+            }
+            !viewModel.isNetworkEnable() -> {
+                AlertDialog.Builder(requireContext())
+                    .setCancelable(false)
+                    .setTitle(R.string.title_no_network)
+                    .setMessage(R.string.massage_no_network)
+                    .setPositiveButton(R.string.ok) { _, _ ->  }
+                    .create().show()
+            }
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         MarkerTapListener(googleMap).invoke()
-        mMap.addMarker(MarkerOptions().position(LatLng(42.812348, 73.845534)))
         //2
         viewModel.fetchUsers().observe(viewLifecycleOwner) {
             lifecycleScope.launch {
@@ -82,7 +107,7 @@ class MainFragment : Fragment(R.layout.fragment_main), OnMapReadyCallback {
         mMap.setOnCameraMoveStartedListener {
             uiScope.launch {
                 val zoom = mMap.cameraPosition.zoom
-                markerAllUser.zoomChanged(zoom)
+                 markerAllUser.zoomChanged(zoom)
             }
         }
     }
@@ -94,6 +119,7 @@ class MainFragment : Fragment(R.layout.fragment_main), OnMapReadyCallback {
                 val location = locationResult.lastLocation!!
                 Log.e("TAGGER", "onLocationResult: $location")
                 if (mMap != null) {
+                    // todo method
                     markerThisUser(location, mMap, requireActivity().applicationContext)
                     viewModel.updateLoc(LocModel(null, location.latitude, location.longitude))
                 }
@@ -103,6 +129,7 @@ class MainFragment : Fragment(R.layout.fragment_main), OnMapReadyCallback {
 
     override fun onStart() {
         super.onStart()
+
         locUpdates.start(requireContext(), requireActivity())
     }
 
@@ -110,6 +137,5 @@ class MainFragment : Fragment(R.layout.fragment_main), OnMapReadyCallback {
         super.onStop()
 
         locUpdates.stop()
-        Toast.makeText(requireContext(), "Well, it's stop ", Toast.LENGTH_SHORT).show()
     }
 }

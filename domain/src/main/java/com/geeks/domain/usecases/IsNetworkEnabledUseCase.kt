@@ -1,10 +1,10 @@
 package com.geeks.domain.usecases
 
-import com.geeks.domain.repositories.locationprovider.LocProviderNetworkRep
+import com.geeks.domain.repositories.locationprovider.LocationProviderRep
 import javax.inject.Inject
 
 class IsNetworkEnabledUseCase @Inject constructor(
-    private val rep: LocProviderNetworkRep
+    private val rep: LocationProviderRep
 ) {
 
     operator fun invoke() = rep.isNetworkEnabled()

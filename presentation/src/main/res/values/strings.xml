@@ -10,16 +10,12 @@
     <string name="hint_name">Имя</string>
     <string name="check_signup">Уже есть аккаунт?\t Войдите</string>
 
-    <!-- Alert Dialog Main Activity-->
-    <string name="alert_dialog_title_need_permission">Нужно разршение</string>
-    <string name="alert_dialog_massage_need_permission">
-        Для дальнейшего использования приложения нужно разрешение на локаци.
-        Пожалуйста, зайдите в разрешения и разрешите отслеживание устройства
-    </string>
-    <string name="alert_dialog_positive_button">настройки</string>
-    <string name="alert_dialog_negative_button">закрыть приложение</string>
-
     <!-- Alert Dialog Main Fragment-->
+    <string name="massage_need_permission_for_background">
+        Для лучшей практики, включите отслеживать все время, чтобы другие пользователи
+        могли видеть ваше местопложение на карте пока вы не используете приложение</string>
+    <string name="negative_button_for_background">Нет Спасибо</string>
+
     <string name="title_no_network_and_GPS">Нет подключения к интернету и не включен GPS</string>
     <string name="massage_no_network_and_GPS">
         Пожалуйста, включите интернет и GPS, чтобы приложение работало корректно</string>
@@ -38,5 +34,9 @@
     <string name="other_person">other person</string>
 
     <!-- Toast text -->
-    <string name="no_account">There no such account</string>
+    <string name="no_account">Такой аккаунт не был зарегистрирован</string>
+    <string name="error">что-то пошло не так</string>
+    <string name="permissions_denied">Для корректной работы нужны эти разрешения</string>
+    <string name="settings">перейдите в настройки, чтобы дать разрешения на локацию</string>
+
 </resources>

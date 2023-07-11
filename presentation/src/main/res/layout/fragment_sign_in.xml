@@ -46,6 +46,9 @@
         android:textColor="@color/white"
         android:textColorHint="@color/gray"
         android:textCursorDrawable="@drawable/text_cursor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_google"
         app:layout_constraintTop_toBottomOf="@id/tv_welcome"
         android:autofillHints="name"
         tools:ignore="VisualLintTextFieldSize" />

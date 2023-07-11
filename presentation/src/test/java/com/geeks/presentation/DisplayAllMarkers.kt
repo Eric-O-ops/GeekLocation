@@ -1,7 +1,7 @@
 package com.geeks.presentation
 
 import android.util.Log
-import com.geeks.domain.modles.LocModel
+import com.geeks.presentation.models.LocModelUI
 import com.google.android.gms.maps.model.LatLng
 import junit.framework.TestCase.assertEquals
 
@@ -13,7 +13,7 @@ class DisplayAllMarkers {
     private val usersMarker: ArrayList<TestMarkerModel> = ArrayList()
     private var init = false
 
-    private fun displayTest(usersList: ArrayList<LocModel>) {
+    private fun displayTest(usersList: ArrayList<LocModelUI>) {
 
         val markerOnMap = if (usersMarker.isEmpty()) 0 else usersMarker.size - 1
         val markerOnDb = usersList.size - 1
@@ -44,9 +44,9 @@ class DisplayAllMarkers {
         val random = Math.random() * (74.0 - 0.0 + 1)
         displayTest(
             arrayListOf(
-                LocModel("Eric", random, random),
-                LocModel("Marsel", random, random),
-                LocModel("Vlad", random, random)
+                LocModelUI("Eric", random, random),
+                LocModelUI("Marsel", random, random),
+                LocModelUI("Vlad", random, random)
             )
         )
     }

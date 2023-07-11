@@ -6,7 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.geeks.domain.modles.LocModel
+import com.geeks.presentation.models.LocModelUI
 import com.geeks.presentation.R
 import com.geeks.presentation.ui.fragments.main.map.ConvertToBitmap
 import com.google.android.gms.maps.GoogleMap
@@ -32,7 +32,7 @@ class MarkerAllUser(
     private val convertImage = ConvertToBitmap.Base()
 
     // todo improve
-    fun display(usersOnDB: ArrayList<LocModel>, mMap: GoogleMap) {
+    fun display(usersOnDB: ArrayList<LocModelUI>, mMap: GoogleMap) {
 
        /* val buildMarker = fun () {}*/
         when {
@@ -48,7 +48,7 @@ class MarkerAllUser(
         }
     }
 
-    private fun buildUserMarker(usersOnDB: ArrayList<LocModel>, mMap: GoogleMap) {
+    private fun buildUserMarker(usersOnDB: ArrayList<LocModelUI>, mMap: GoogleMap) {
         for (value in usersOnDB) {
             val marker = mMap.addMarker(
                 MarkerOptions()
@@ -60,14 +60,14 @@ class MarkerAllUser(
         }
     }
 
-    private fun addNewUserMarker(usersOnDB: ArrayList<LocModel>, mMap: GoogleMap) {
+    private fun addNewUserMarker(usersOnDB: ArrayList<LocModelUI>, mMap: GoogleMap) {
         val users = usersOnDB.size - usersMarker.size
-        val newUsersList: ArrayList<LocModel> = ArrayList()
+        val newUsersList: ArrayList<LocModelUI> = ArrayList()
         for (user in users - 1 until usersOnDB.size) { newUsersList.add(usersOnDB[user]) }
         buildUserMarker(newUsersList, mMap)
     }
 
-    private fun updateUserLocation(usersOnDB: ArrayList<LocModel>, mMap: GoogleMap) {
+    private fun updateUserLocation(usersOnDB: ArrayList<LocModelUI>, mMap: GoogleMap) {
         try {
             for ((i, value) in usersOnDB.withIndex()) {
                 val position = LatLng(value.latitude, value.longitude)
@@ -84,7 +84,7 @@ class MarkerAllUser(
 
     @SuppressLint("InflateParams")
     //todo come up with new name for
-    suspend fun zoomChanged(zoom: Float) {
+     fun zoomChanged(zoom: Float) {
 
         val marker = LayoutInflater.from(context).inflate(R.layout.marker_other_person, null)
         val container = marker.findViewById<LinearLayout>(R.id.container_marker)

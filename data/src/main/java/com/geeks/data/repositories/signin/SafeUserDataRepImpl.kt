@@ -18,13 +18,12 @@ class SafeUserDataRepImpl @Inject constructor(
 ) : SaveUserDataRep {
 
     override fun saveUserData(name: String) {
-
         firestore.collection(Constants.FirebaseCID.NAME_COLLECTION)
             .document(Constants.FirebaseCID.NAME_DOC)
             .get(Source.SERVER).addOnSuccessListener { document ->
                 if (document != null) {
                     firestore.collection(Constants.FirebaseUsers.NAME_COLLECTION)
-                        .document(getUID())
+                        .document(auth.currentUser!!.email!!)
                         .set(setUpUser(name, document))
                         .addOnSuccessListener {
                             Log.d("TAGGER", "DocumentSnapshot successfully written!")
@@ -52,7 +51,7 @@ class SafeUserDataRepImpl @Inject constructor(
         name: String,
         doc: DocumentSnapshot
     ): HashMap<String, Comparable<*>> {
-        val email = auth.currentUser?.email ?: "no email" //todo
+        val email = auth.currentUser?.email ?: "no email"
         safeUserAccountId()
         return hashMapOf(
             Constants.FirebaseUsers.USER_ID_FIELD to getId(doc),
@@ -63,7 +62,7 @@ class SafeUserDataRepImpl @Inject constructor(
         )
     }
 
-    private fun safeUserAccountId() { pref.userAccountId = getUID() }
+    private fun safeUserAccountId() { pref.userEmail = auth.currentUser!!.email!! }
 
-    private fun getUID(): String = auth.currentUser?.uid ?: "no uid"  //todo
+    private fun getUID(): String = auth.currentUser?.uid ?: "no uid"
 }

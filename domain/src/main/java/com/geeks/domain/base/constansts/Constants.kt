@@ -3,7 +3,6 @@ package com.geeks.domain.base.constansts
 object Constants {
 
     object FirebaseUsers {
-
         const val NAME_COLLECTION = "Users"
         const val USER_ID_FIELD = "id"
         const val USER_ACCOUNT_ID = "accountId"
@@ -13,14 +12,15 @@ object Constants {
     }
 
     object FirebaseCID {
-
         const val NAME_COLLECTION = "CID"
         const val NAME_DOC = "freeID"
         const val NAME_FIELD = "id"
     }
 
-    object Permissions {}
+    object Notification {
+        const val FOREGROUND_CONTENT_TEXT = "Приложение отслеживает местоположение"
+        const val FOREGROUND_CONTENT_TITLE = "GeekLocation запущено"
+    }
 
-    const val TEXT_ERROR = "something was wrong"
     const val SPANNABLE_TEXT_SIGN_IN = "Уже есть аккаунт?\t Войдите"
 }

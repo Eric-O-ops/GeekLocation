@@ -21,7 +21,7 @@ class SignInViewModel @Inject constructor(
 
     fun saveUserData(name: String) = saveUserDataUseCase(name)
 
-    //todo change parameters on object class
-    fun checkSignIn(token: String, onSuccess:() -> Unit, onError:() -> Unit) =
-        checkSignInUseCase(token, onSuccess, onError)
+    //todo change parameters on object class (selcked )
+    fun checkSignIn(email: String, onSuccess: () -> Unit, onError: () -> Unit) =
+        checkSignInUseCase(email, onSuccess, onError)
 }

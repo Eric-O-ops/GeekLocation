@@ -16,7 +16,7 @@ class UserPreferencesData(
                 PreferencesConstants.USER_ID, value
             ).apply()
 
-    var userAccountId: String
+    var userEmail: String
         get() = preferences().getString(
             PreferencesConstants.USER_ACCOUNT_ID, "null"
         ).toString()

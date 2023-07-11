@@ -8,5 +8,5 @@ class PreferenceRepImpl @Inject constructor(
     private val pref: UserPreferencesData
 ): PreferenceRep {
 
-    override fun getUserName() = pref.userAccountId
+    override fun userEmail() = pref.userEmail
 }

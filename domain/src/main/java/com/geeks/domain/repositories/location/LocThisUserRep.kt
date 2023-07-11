@@ -1,8 +1,8 @@
 package com.geeks.domain.repositories.location
 
-import com.geeks.domain.modles.LocModel
+import com.geeks.domain.models.LocModelDomain
 
 interface LocThisUserRep {
 
-    fun updateLoc(location: LocModel)
+    fun updateLoc(location: LocModelDomain)
 }

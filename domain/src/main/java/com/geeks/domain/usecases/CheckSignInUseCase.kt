@@ -6,6 +6,6 @@ import javax.inject.Inject
 class CheckSignInUseCase @Inject constructor(
     private val rep: CheckSignInRep
 ) {
-    operator fun invoke(token: String, onSuccess: () -> Unit, onError: () -> Unit) =
-        rep.checkSignIn(token, onSuccess, onError)
+    operator fun invoke(email: String, onSuccess: () -> Unit, onError: () -> Unit) =
+        rep.checkSignIn(email, onSuccess, onError)
 }

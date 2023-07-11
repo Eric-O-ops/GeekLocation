@@ -54,4 +54,8 @@ dependencies {
 
     // Firebase firestore
     implementation (Dependencies.Firebase.firestore)
+
+    // Google map
+    implementation(Dependencies.Maps.playServicesMaps)
+    implementation(Dependencies.Maps.serviceLocation)
 }

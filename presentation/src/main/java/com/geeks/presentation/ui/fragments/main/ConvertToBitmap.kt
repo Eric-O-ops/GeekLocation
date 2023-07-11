@@ -1,4 +1,4 @@
-package com.geeks.presentation.ui.fragments.main.map
+package com.geeks.presentation.ui.fragments.main
 
 import android.content.Context
 import android.graphics.Bitmap

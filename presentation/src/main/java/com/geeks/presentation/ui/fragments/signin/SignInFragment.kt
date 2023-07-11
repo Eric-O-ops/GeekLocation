@@ -9,15 +9,14 @@ import android.text.style.ClickableSpan
 import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.geeks.domain.base.constansts.Constants
 import com.geeks.presentation.R
 import com.geeks.presentation.base.BaseFragment
+import com.geeks.presentation.base.extensions.toast
 import com.geeks.presentation.databinding.FragmentSignInBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -116,11 +115,4 @@ class SignInFragment :
                 task.result?.email?.let { email -> isAccountRegistered(email) }
             }
         }
-}
-
-fun Fragment.toast(text: String) {
-    Toast.makeText(this.requireContext(), text, Toast.LENGTH_SHORT).show()
-}
-fun Fragment.toast(text: Int) {
-    Toast.makeText(this.requireContext(), text, Toast.LENGTH_SHORT).show()
 }

@@ -5,32 +5,23 @@ import android.app.AlertDialog
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.KeyEvent.DispatcherState
 import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.geeks.presentation.R
 import com.geeks.presentation.base.extensions.checkSinglePermission
 import com.geeks.presentation.base.extensions.listToListUI
 import com.geeks.presentation.base.extensions.showAlertDialog
+import com.geeks.presentation.base.extensions.toast
 import com.geeks.presentation.models.toUI
-import com.geeks.presentation.ui.fragments.main.map.allusers.MarkerAllUser
-import com.geeks.presentation.ui.fragments.main.map.allusers.MarkerTapListener
-import com.geeks.presentation.ui.fragments.main.map.thisuser.DisplayThisUserOnMap
-import com.geeks.presentation.ui.fragments.signin.toast
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainFragment : Fragment(R.layout.fragment_main), OnMapReadyCallback {

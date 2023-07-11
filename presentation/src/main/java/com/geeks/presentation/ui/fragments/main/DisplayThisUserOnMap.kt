@@ -1,10 +1,9 @@
-package com.geeks.presentation.ui.fragments.main.map.thisuser
+package com.geeks.presentation.ui.fragments.main
 
 import android.content.Context
 import android.location.Location
 import com.geeks.presentation.models.LocModelUI
 import com.geeks.presentation.R
-import com.geeks.presentation.ui.fragments.main.map.ConvertToBitmap
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng

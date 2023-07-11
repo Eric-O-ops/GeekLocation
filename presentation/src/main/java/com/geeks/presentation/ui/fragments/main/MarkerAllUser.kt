@@ -1,4 +1,4 @@
-package com.geeks.presentation.ui.fragments.main.map.allusers
+package com.geeks.presentation.ui.fragments.main
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,7 +8,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.geeks.presentation.models.LocModelUI
 import com.geeks.presentation.R
-import com.geeks.presentation.ui.fragments.main.map.ConvertToBitmap
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
